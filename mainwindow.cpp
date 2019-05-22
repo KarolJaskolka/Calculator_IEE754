@@ -101,8 +101,6 @@ void MainWindow::on_pushButton_Equal_clicked()
     QString text;
 
     switch(choice){
-    case 0:
-        break;
     case 1:
         number = FloatingPoint::add(number,memory);
         ui->lineEdit->setText(text.setNum(number));
@@ -119,8 +117,7 @@ void MainWindow::on_pushButton_Equal_clicked()
         number = FloatingPoint::divide(memory,number);
         ui->lineEdit->setText(text.setNum(number));
         break;
-    case 5:
-
+    default:
         break;
     }
 }
@@ -159,8 +156,9 @@ void MainWindow::on_pushButton_Div_clicked()
 
 void MainWindow::on_pushButton_Sqrt_clicked()
 {
-    choice = 5;
-    memory = ui->lineEdit->text().toFloat();
+    float number = FloatingPoint::sqrt(ui->lineEdit->text().toFloat());
+    QString text;
+    ui->lineEdit->setText(text.setNum(number));
     clear = true;
     dotUsed = false;
 }
