@@ -1,6 +1,36 @@
 #include "floatingpoint.h"
 
 FloatingPoint::FloatingPoint(){}
+
+float FloatingPoint::power(float x, int y){
+
+    float res = 1.0;
+
+    asm(
+    "   FINIT \n"
+    "   FLDS %2 \n"
+    "   FLDS %1 \n"
+    "   cmpl $0, %%ecx \n"
+    "   jge loop \n"
+    "   mov $0, %%edx \n"
+    "   mov $-1, %%eax \n"
+    "   imul %%ecx \n"
+    "   mov %%eax, %%ecx \n"
+    "   FDIV %%st(0), %%st(1) \n"
+    "loop: \n"
+    "   FMUL %%st(1), %%st(0) \n"
+    "   decl %%ecx  \n"
+    "   cmpl $0, %%ecx  \n"
+    "   jne loop \n"
+    "exit: \n"
+    "   FSTPS %0 \n"
+    :"=m"(res)
+    :"m"(res),"m"(x),"c"(y)
+    );
+
+    return res;
+}
+
 float FloatingPoint::add(float x, float y){
 
     asm(
@@ -61,3 +91,11 @@ float FloatingPoint::sqrt(float x){
 
 }
 
+float FloatingPoint::root(float x, float n){
+    float r = x;
+    int a = static_cast<int>(n - 1);
+    for(int i=0;i<1000;i++){
+        r = (1/n) * ( a*r + ( x / power(r,a) ) );
+    }
+    return r;
+}

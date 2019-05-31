@@ -65,6 +65,12 @@ private slots:
 
     void clearDisplay();
 
+    void on_pushButton_Pow_clicked();
+
+    void on_pushButton_Pow_2_clicked();
+
+    void on_pushButton_root_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

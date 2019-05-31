@@ -8,6 +8,8 @@ public:
 
     FloatingPoint();
 
+    static float root(float x, float n);
+    static float power(float x, int y);
     static float add(float x, float y);
     static float subtract(float x, float y);
     static float multiply(float x, float y);

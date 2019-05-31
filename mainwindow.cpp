@@ -9,6 +9,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->lineEdit->setText("0");
     this->setWindowTitle("Calculator");
+    ui->pushButton_Sqrt->setText("\u221A");
+    ui->pushButton_Pow_2->setText(ui->pushButton_Pow_2->text() + "\u00B2");
+    ui->pushButton_Pow->setText(ui->pushButton_Pow->text() + "\u207F");
+    ui->pushButton_root->setText("\u207F");
+    ui->pushButton_root->setText(ui->pushButton_root->text() + "\u221A");
 }
 
 MainWindow::~MainWindow()
@@ -117,6 +122,14 @@ void MainWindow::on_pushButton_Equal_clicked()
         number = FloatingPoint::divide(memory,number);
         ui->lineEdit->setText(text.setNum(number));
         break;
+    case 5:
+        number = FloatingPoint::power(memory,static_cast<int>(number));
+        ui->lineEdit->setText(text.setNum(number));
+        break;
+    case 6:
+        number = FloatingPoint::root(memory,static_cast<int>(number));
+        ui->lineEdit->setText(text.setNum(number));
+        break;
     default:
         break;
     }
@@ -154,6 +167,22 @@ void MainWindow::on_pushButton_Div_clicked()
     dotUsed = false;
 }
 
+void MainWindow::on_pushButton_Pow_clicked()
+{
+    choice = 5;
+    memory = ui->lineEdit->text().toFloat();
+    clear = true;
+    dotUsed = true;
+}
+
+void MainWindow::on_pushButton_root_clicked()
+{
+    choice = 6;
+    memory = ui->lineEdit->text().toFloat();
+    clear = true;
+    dotUsed = true;
+}
+
 void MainWindow::on_pushButton_Sqrt_clicked()
 {
     float number = FloatingPoint::sqrt(ui->lineEdit->text().toFloat());
@@ -163,9 +192,22 @@ void MainWindow::on_pushButton_Sqrt_clicked()
     dotUsed = false;
 }
 
+void MainWindow::on_pushButton_Pow_2_clicked()
+{
+    float number = ui->lineEdit->text().toFloat();
+    QString text;
+    number = FloatingPoint::power(number,2);
+    ui->lineEdit->setText(text.setNum(number));
+}
+
 void MainWindow::on_pushButton_Back_clicked()
 {
-    clearDisplay();
+    if(ui->lineEdit->text().length() > 1) {
+        ui->lineEdit->setText(ui->lineEdit->text().left(ui->lineEdit->text().length()-1));
+    }
+    else {
+        clearDisplay();
+    }
 }
 
 void MainWindow::on_pushButton_Clear_clicked()
