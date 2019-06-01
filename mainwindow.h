@@ -71,6 +71,8 @@ private slots:
 
     void on_pushButton_root_clicked();
 
+    void setButtons();
+
 private:
     Ui::MainWindow *ui;
 };

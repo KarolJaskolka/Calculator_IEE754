@@ -9,11 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->lineEdit->setText("0");
     this->setWindowTitle("Calculator");
-    ui->pushButton_Sqrt->setText("\u221A");
-    ui->pushButton_Pow_2->setText(ui->pushButton_Pow_2->text() + "\u00B2");
-    ui->pushButton_Pow->setText(ui->pushButton_Pow->text() + "\u207F");
-    ui->pushButton_root->setText("\u207F");
-    ui->pushButton_root->setText(ui->pushButton_root->text() + "\u221A");
+    setButtons();
 }
 
 MainWindow::~MainWindow()
@@ -229,4 +225,67 @@ void MainWindow::clearDisplay(){
     ui->lineEdit->setText("0");
     clear = true;
     dotUsed = false;
+}
+
+void MainWindow::setButtons(){
+    ui->pushButton_Sqrt->setText("\u221A");
+    ui->pushButton_Pow_2->setText(ui->pushButton_Pow_2->text() + "\u00B2");
+    ui->pushButton_Pow->setText(ui->pushButton_Pow->text() + "\u207F");
+    ui->pushButton_root->setText("\u207F");
+    ui->pushButton_root->setText(ui->pushButton_root->text() + "\u221A");
+    ui->pushButton_Div->setText("\u00F7");
+    ui->pushButton_Mul->setText("\u00D7");
+    ui->pushButton_Back->setText("\u2190");
+
+
+    ui->pushButton_1->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
+                                    "QPushButton:hover {background-color: #a0a0a0}");
+    ui->pushButton_2->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
+                                    "QPushButton:hover {background-color: #a0a0a0}");
+    ui->pushButton_3->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
+                                    "QPushButton:hover {background-color: #a0a0a0}");
+    ui->pushButton_4->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
+                                    "QPushButton:hover {background-color: #a0a0a0}");
+    ui->pushButton_5->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
+                                    "QPushButton:hover {background-color: #a0a0a0}");
+    ui->pushButton_6->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
+                                    "QPushButton:hover {background-color: #a0a0a0}");
+    ui->pushButton_7->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
+                                    "QPushButton:hover {background-color: #a0a0a0}");
+    ui->pushButton_8->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
+                                    "QPushButton:hover {background-color: #a0a0a0}");
+    ui->pushButton_9->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
+                                    "QPushButton:hover {background-color: #a0a0a0}");
+    ui->pushButton_0->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
+                                    "QPushButton:hover {background-color: #a0a0a0}");
+    ui->pushButton_Dot->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
+                                      "QPushButton:hover {background-color: #a0a0a0}");
+    ui->pushButton_Sign->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
+                                       "QPushButton:hover {background-color: #a0a0a0}");
+
+
+    ui->pushButton_Clear->setStyleSheet("QPushButton{background-color: #eda540;border-style: outset;}"
+                                        "QPushButton:hover {background-color: #e09030}");
+    ui->pushButton_Equal->setStyleSheet("QPushButton{background-color: #eda540;border-style: outset;}"
+                                        "QPushButton:hover {background-color: #e09030}");
+    ui->pushButton_Back->setStyleSheet("QPushButton{background-color: #eda540;border-style: outset;}"
+                                       "QPushButton:hover {background-color: #e09030}");
+
+    ui->pushButton_Add->setStyleSheet("QPushButton{background-color: #3f8aed;border-style: outset;}"
+                                      "QPushButton:hover {background-color: #2070d0}");
+    ui->pushButton_Sub->setStyleSheet("QPushButton{background-color: #3f8aed;border-style: outset;}"
+                                      "QPushButton:hover {background-color: #2070d0}");
+    ui->pushButton_Div->setStyleSheet("QPushButton{background-color: #3f8aed;border-style: outset;}"
+                                      "QPushButton:hover {background-color: #2070d0}");
+    ui->pushButton_Mul->setStyleSheet("QPushButton{background-color: #3f8aed;border-style: outset;}"
+                                      "QPushButton:hover {background-color: #2070d0}");
+    ui->pushButton_Pow->setStyleSheet("QPushButton{background-color: #3f8aed;border-style: outset;}"
+                                      "QPushButton:hover {background-color: #2070d0}");
+    ui->pushButton_Pow_2->setStyleSheet("QPushButton{background-color: #3f8aed;border-style: outset;}"
+                                        "QPushButton:hover {background-color: #2070d0}");
+    ui->pushButton_Sqrt->setStyleSheet("QPushButton{background-color: #3f8aed;border-style: outset;}"
+                                       "QPushButton:hover {background-color: #2070d0}");
+    ui->pushButton_root->setStyleSheet("QPushButton{background-color: #3f8aed;border-style: outset;}"
+                                       "QPushButton:hover {background-color: #2070d0}");
+
 }

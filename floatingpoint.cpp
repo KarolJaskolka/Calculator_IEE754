@@ -2,7 +2,7 @@
 
 FloatingPoint::FloatingPoint(){}
 
-float FloatingPoint::power(float x, int y){
+float FloatingPoint::power(float x, int n){
 
     float res = 1.0;
 
@@ -25,7 +25,7 @@ float FloatingPoint::power(float x, int y){
     "exit: \n"
     "   FSTPS %0 \n"
     :"=m"(res)
-    :"m"(res),"m"(x),"c"(y)
+    :"m"(res),"m"(x),"c"(n)
     );
 
     return res;
@@ -95,7 +95,7 @@ float FloatingPoint::root(float x, float n){
     float r = x;
     int a = static_cast<int>(n - 1);
     for(int i=0;i<1000;i++){
-        r = (1/n) * ( a*r + ( x / power(r,a) ) );
+        r = multiply( divide(1,n) , add( multiply(a,r), divide(x, power(r,a)) ) );
     }
     return r;
 }
