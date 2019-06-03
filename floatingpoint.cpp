@@ -93,6 +93,16 @@ float FloatingPoint::sqrt(float x){
 
 float FloatingPoint::root(float x, float n){
     float r = x;
+    if(static_cast<int>(n)%2 == 0 && x < 0){
+        asm(
+        "FLDS %1 \n"
+        "FSQRT  \n"
+        "FSTPS %0 \n"
+        :"=m"(x)
+        :"m"(x)
+        );
+        return x;
+    }
     int a = static_cast<int>(n - 1);
     for(int i=0;i<1000;i++){
         r = multiply( divide(1,n) , add( multiply(a,r), divide(x, power(r,a)) ) );

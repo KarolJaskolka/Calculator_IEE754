@@ -263,7 +263,6 @@ void MainWindow::setButtons(){
     ui->pushButton_Sign->setStyleSheet("QPushButton{background-color: #bcbcbc;border-style: outset;}"
                                        "QPushButton:hover {background-color: #a0a0a0}");
 
-
     ui->pushButton_Clear->setStyleSheet("QPushButton{background-color: #eda540;border-style: outset;}"
                                         "QPushButton:hover {background-color: #e09030}");
     ui->pushButton_Equal->setStyleSheet("QPushButton{background-color: #eda540;border-style: outset;}"
